@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="hier vindt je meningen enn reviews over beroemde spellen">
+    <meta name="keywords" content="games, ratings, gameratings, top3, populairgames">
+    <meta name="author" content="Jelle Groen">
+    <title>Home</title>
+    <link rel="stylesheet" href="script.css"> <!-- Verwijst naar het CSS-bestand -->
+</head>
+
+<body>
+
+    <!-- Navigatiebalk -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#merchandise">merchandise</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Titel van de website met logo -->
+    <header>
+        <img src="fotos/gamestars.png" alt="Logo" class="logo"> <!-- Zorg ervoor dat je logo.png hebt in je projectmap -->
+        <h1 class="title">Game Stars</h1>
+    </header>
+
+    <!-- Slideshow van de top 3 games -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="fotos/csgo.png" alt="Game 1"> <!-- Zorg voor je eigen foto's -->
+        </div>
+        <div class="mySlides fade">
+            <img src="fotos/gta.png" alt="Game 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="fotos/mc.png" alt="Game 3">
+        </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+        <p>Deze website is niet verantwoordelijk voor fouten in de gepresenteerde informatie.</p>
+    </div>
+
+    <!-- Footer met contactgegevens -->
+    <footer>
+        <p>Telefoon: 81-987378849</p>
+        <p>Email: info@gamestars.com</p>
+        <p>Social Media: <a href="https://facebook.com" target="_blank">Facebook</a> | <a href="https://twitter.com" target="_blank">Twitter</a></p>
+    </footer>
+
+    <script>
+        // Slideshow functionaliteit
+        let slideIndex = 0;
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 6000); // Verander de afbeelding elke 6 seconden
+        }
+
+        showSlides(); // Start de slideshow
+    </script>
+
+</body>
+
+</html>
