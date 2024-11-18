@@ -1,11 +1,17 @@
 /* Algemene opmaak */
 body {
-    font-family: Arial, sans-serif; /* Font voor de hele website */
+    font-family: monospace, sans-serif; /* Font voor de hele website */
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Maakt dat padding en border geen invloed hebben op de grootte van een element */
-    background-color: #acacac; /* Lichte grijze achtergrondkleur */
+    background-color: #d0d0d0; /* Lichte grijze achtergrondkleur */
     color: #333; /* Donkere tekstkleur */
+}
+
+/* Specifieke stijlen voor de homepagina */
+body.home {
+    min-height: 100vh; /* Zorgt ervoor dat de body minimaal 100% van de hoogte van het scherm is */
+    padding-bottom: 60px; /* Zorgt ervoor dat er genoeg ruimte is voor de footer */
 }
 
 /* Navigatiebalk */
@@ -81,12 +87,6 @@ footer {
     width: 100%; /* De footer neemt de volledige breedte in beslag */
     bottom: 0; /* Zet de footer vast aan de onderkant van het scherm */
     font-size: 14px; /* Klein lettertype voor de tekst in de footer */
-}
-
-/* Adjusting body height */
-body {
-    min-height: 100vh; /* Zorgt ervoor dat de body minimaal 100% van de hoogte van het scherm is */
-    padding-bottom: 60px; /* Zorgt ervoor dat er genoeg ruimte is voor de footer */
 }
 
 footer a {
