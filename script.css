@@ -40,7 +40,7 @@ nav a:hover {
     font-size: 3em; /* Grote lettergrootte voor de titel */
     text-align: center; /* Centreert de titel */
     margin-top: 50px; /* Wat ruimte boven de titel */
-    color: #FF6347; /* Tomatenrood voor de titel */
+    color: #3b3dcb; /* blauw voor de titel */
     margin-left: 50px; /* Dit zorgt ervoor dat de titel ruimte heeft, omdat de logo linksboven nu is gepositioneerd */
 }
 
@@ -78,17 +78,26 @@ nav a:hover {
 }
 
 /* Footer */
-footer {
+.index-footer {
     background-color: #1E2A38; /* Donkerblauwe achtergrondkleur voor de footer */
     color: white; /* Witte tekstkleur */
     text-align: center; /* Centreert de tekst */
-    padding: 20px 0; /* Wat ruimte boven en onder de footer */
+    padding: 1px 0; /* Wat ruimte boven en onder de footer */
     position: fixed; /* Maakt de footer altijd zichtbaar onderaan de pagina */
     width: 100%; /* De footer neemt de volledige breedte in beslag */
     bottom: 0; /* Zet de footer vast aan de onderkant van het scherm */
     font-size: 14px; /* Klein lettertype voor de tekst in de footer */
 }
-
+.games-footer {
+    background-color: #1E2A38; /* Donkerblauwe achtergrondkleur voor de footer */
+    color: white; /* Witte tekstkleur */
+    text-align: center; /* Centreert de tekst */
+    padding: 1px 0; /* Wat ruimte boven en onder de footer */
+    position: fixed; /* Maakt de footer altijd zichtbaar onderaan de pagina */
+    width: 100%; /* De footer neemt de volledige breedte in beslag */
+    bottom: 0; /* Zet de footer vast aan de onderkant van het scherm */
+    font-size: 14px; /* Klein lettertype voor de tekst in de footer */
+}
 footer a {
     color: #FF6347; /* Tomatenrood voor de links in de footer */
     text-decoration: none; /* Verwijdert de standaard onderlijning van links */
@@ -100,12 +109,12 @@ footer a:hover {
 
 /* Disclaimer */
 .disclaimer {
-    background-color: #FFEB3B; /* Gele achtergrondkleur voor de disclaimer */
-    color: #333; /* Donkere tekstkleur voor de disclaimer */
-    padding: 20px; /* Wat ruimte rondom de tekst */
+    background-color: #2e2f31; /* Gele achtergrondkleur voor de disclaimer */
+    color: #831414; /* Donkere tekstkleur voor de disclaimer */
+    padding: 2px; /* Wat ruimte rondom de tekst */
     text-align: center; /* Centreert de tekst */
-    font-size: 14px; /* Klein lettertype voor de disclaimer */
-    margin-top: 20px; /* Wat ruimte boven de disclaimer */
+    font-size: 8px; /* Klein lettertype voor de disclaimer */
+    margin-top: 12px; /* Wat ruimte boven de disclaimer */
 }
 
 /* Slideshow en animatie effecten */
@@ -120,4 +129,81 @@ footer a:hover {
 
 .mySlides {
     animation: fadeIn 2s ease-in-out; /* Toepassen van de fade-in animatie */
+}
+
+
+/* Scoped styling for the page-container */
+.page-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation bar styling */
+.page-container nav {
+    background-color: #1E2A38;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.page-container nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+/* Logo and header styling */
+.page-container header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.page-container header .logo {
+    width: 100px;
+    height: auto;
+}
+
+.page-container header .title {
+    font-size: 36px;
+    margin-top: 10px;
+}
+
+/* Slideshow container and images */
+.page-container .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.page-container .mySlides {
+    display: none;
+}
+
+.page-container .mySlides img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styling for the photo rows (top and bottom) */
+.page-container .photo-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.page-container .photo-container img {
+    width: 200px; /* Adjust width of each photo */
+    height: auto;
+    margin: 0 10px; /* Space between images */
+    border-radius: 8px; /* Optional: rounded corners for images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow for images */
+}
+
+/* Specific margin for top and bottom photo rows */
+.page-container .top-photos, .page-container .bottom-photos {
+    margin-top: 20px;
 }
