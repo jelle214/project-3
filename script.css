@@ -34,6 +34,10 @@ nav a:hover {
     background-color: #4CAF50; /* Groene achtergrondkleur bij hover-effect */
     color: white; /* Witte tekstkleur bij hover */
 }
+.active{
+    background-color: #2a602c; /* Groene achtergrondkleur als je op de pagina bent */
+    color: white; /* Witte tekstkleur bij hover */
+}
 
 /* Titel van de website */
 .title {
@@ -195,7 +199,7 @@ footer a:hover {
     margin: 20px 0;
 }
 
-.page-container .photo-container img {
+.page-container .photo-container a img {
     width: 200px; /* Adjust width of each photo */
     height: auto;
     margin: 0 10px; /* Space between images */
@@ -208,21 +212,6 @@ footer a:hover {
     margin-top: 20px;
 }
 
-/* Algemene opmaak */
-body {
-    font-family: monospace, sans-serif; /* Font voor de hele website */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Maakt dat padding en border geen invloed hebben op de grootte van een element */
-    background-color: #d0d0d0; /* Lichte grijze achtergrondkleur */
-    color: #333; /* Donkere tekstkleur */
-}
-
-/* Specifieke stijlen voor de homepagina */
-body.home {
-    min-height: 100vh; /* Zorgt ervoor dat de body minimaal 100% van de hoogte van het scherm is */
-    padding-bottom: 60px; /* Zorgt ervoor dat er genoeg ruimte is voor de footer */
-}
 
 /* Navigatiebalk */
 nav {
@@ -230,65 +219,6 @@ nav {
     overflow: hidden; /* Zorgt ervoor dat de inhoud niet buiten de navigatiebalk valt */
 }
 
-nav a {
-    float: left; /* Zorgt ervoor dat de links naast elkaar komen */
-    display: block;
-    color: white; /* Witte tekstkleur voor de links */
-    text-align: center;
-    padding: 14px 20px; /* Wat ruimte rondom de tekst in de links */
-    text-decoration: none; /* Verwijdert de standaard onderlijning van links */
-    font-size: 16px; /* Instelt de grootte van de tekst */
-}
-
-nav a:hover {
-    background-color: #4CAF50; /* Groene achtergrondkleur bij hover-effect */
-    color: white; /* Witte tekstkleur bij hover */
-}
-.active{
-    background-color: #2a602c; /* Groene achtergrondkleur als je op de pagina bent */
-    color: white; /* Witte tekstkleur bij hover */
-}
-/* Titel van de website */
-.title {
-    font-size: 3em; /* Grote lettergrootte voor de titel */
-    text-align: center; /* Centreert de titel */
-    margin-top: 50px; /* Wat ruimte boven de titel */
-    color: #FF6347; /* Tomatenrood voor de titel */
-    margin-left: 50px; /* Dit zorgt ervoor dat de titel ruimte heeft, omdat de logo linksboven nu is gepositioneerd */
-}
-
-/* Logo */
-.logo {
-    position: absolute; /* Positioneert de logo absoluut ten opzichte van het bovenste element */
-    top: 20px; /* Zet het logo 20px van de bovenkant van het scherm */
-    right: 20px; /* Zet het logo 20px van de rechterzijde van het scherm */
-    max-width: 120px; /* Verkleint de maximale breedte van het logo */
-    height: auto; /* Zorgt ervoor dat de hoogte automatisch wordt aangepast om de verhoudingen van het logo te behouden */
-}
-
-/* Slideshow */
-.slideshow-container {
-    max-width: 80%; /* Maakt de slideshow-container maximaal 80% breed van de pagina */
-    margin: auto; /* Centreert de slideshow-container */
-    overflow: hidden; /* Verbergt de delen van de afbeeldingen die buiten de container vallen */
-    display: flex; /* Flexbox inschakelen om de inhoud te centreren */
-    justify-content: center; /* Horizontaal centreren van de afbeeldingen */
-    align-items: center; /* Verticaal centreren van de afbeeldingen */
-    height: 400px; /* Stel een vaste hoogte in voor de slideshow-container */
-}
-
-.mySlides {
-    display: none; /* Verbergt de slides */
-    width: 100%; /* Zorgt ervoor dat de afbeeldingen 100% van de container breed zijn */
-    max-width: 600px; /* Beperk de breedte van de afbeeldingen */
-}
-
-.slideshow-container img {
-    width: 100%; /* Zorgt ervoor dat de afbeelding zich aanpast aan de container */
-    height: auto; /* Behoudt de originele aspect ratio van de afbeelding */
-    max-width: 600px; /* Beperkt de maximale breedte van de afbeeldingen tot 600px */
-    margin: auto; /* Centreert de afbeelding binnen de container */
-}
 .center{ /*zorgt ervoor dat de tekst in contacten er mooi uitziet en in het center blijft*/
 text-align: center;
 margin-left: 33%;
@@ -342,30 +272,6 @@ footer {
     font-size: 14px; /* Klein lettertype voor de tekst in de footer */
 }
 
-footer a {
-    color: #FF6347; /* Tomatenrood voor de links in de footer */
-    text-decoration: none; /* Verwijdert de standaard onderlijning van links */
-}
-
-footer a:hover {
-    text-decoration: underline; /* Voegt onderlijning toe bij hover-effect */
-}
-
-/* Disclaimer */
-
-/* Slideshow en animatie effecten */
-@keyframes fadeIn {
-    0% {
-        opacity: 0; /* De afbeelding is onzichtbaar aan het begin */
-    }
-    100% {
-        opacity: 1; /* De afbeelding is volledig zichtbaar aan het einde */
-    }
-}
-
-.mySlides {
-    animation: fadeIn 2s ease-in-out; /* Toepassen van de fade-in animatie */
-}
 
 
 
@@ -375,23 +281,4 @@ footer a:hover {
 
 
 
-/*div.gallery {
-   margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 20%;
-}
-  
-  div.gallery:hover {
-    border: 1px solid #777;
-  }
-  
-  div.gallery img {
-   width: 20%;
-  }
-  
-  div.desc {
-    padding: 15px;
-    text-align: center;
-  }*/
   
