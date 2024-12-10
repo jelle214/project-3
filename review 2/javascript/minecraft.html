@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Review Pagina</title>
+    <link rel="stylesheet" href="stijl.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Game Review</h1>
+        <div id="game-info" class="game-info">
+            <!-- Game informatie wordt hier getoond -->
+        </div>
+
+        <button onclick="switchGame()">Wissel Game</button>
+    </div>
+
+    <script>
+        // Multidimensionale array met game-informatie
+        const games = [
+            {
+                naam: "minercaft",
+                genre: "sandbox/avontuur",
+                beoordeling: 8,
+                beschrijving: "een uitdagenden game met eindeloze mogenlijkheden.",
+                afbeelding: "fotos/minecraft.png"
+            },
+            {
+                naam: "super mario odysey",
+                genre: "adventure/platformer",
+                beoordeling: 9,
+                beschrijving: "een platformer met een goed verhaal en uitdagenden uitdagingen.",
+                afbeelding: "fotos/smao.png"
+            }
+        ];
+
+        // Variabele die bijhoudt welke game er getoond wordt
+        let currentGameIndex = 0;
+
+        // Functie om de game te wisselen
+        function switchGame() {
+            // Wijzig de waarde van currentGameIndex van 0 naar 1 of van 1 naar 0
+            currentGameIndex = (currentGameIndex === 0) ? 1 : 0;
+            
+            // Toon de informatie van de gekozen game
+            displayGameInfo();
+        }
+
+        // Functie om de game-informatie te tonen
+        function displayGameInfo() {
+            const game = games[currentGameIndex];
+
+            // Gebruik van string interpolatie om de game-informatie weer te geven
+            const gameHTML = `
+                <img src="${game.afbeelding}" alt="${game.naam} Afbeelding" class="game-image">
+                <h2>${game.naam}</h2>
+                <p><strong>Genre:</strong> ${game.genre}</p>
+                <p><strong>Beoordeling:</strong> ${game.beoordeling}</p>
+                <p><strong>Beschrijving:</strong> ${game.beschrijving}</p>
+            `;
+
+            // Zet de game-informatie in de HTML
+            document.getElementById('game-info').innerHTML = gameHTML;
+        }
+
+        // Initialiseer de pagina door de eerste game weer te geven
+        displayGameInfo();
+    </script>
+
+</body>
+</html>
