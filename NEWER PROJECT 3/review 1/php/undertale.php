@@ -1,3 +1,11 @@
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hier vind je meningen en reviews over beroemde spellen">
+    <meta name="keywords" content="gameratings, top10, games, bestgamesofalltime, populairgames">
+    <meta name="author" content="Jelle Groen">
+</head>
 <?php
 // Associatieve arrays voor games, inclusief de afbeelding
 $games = [
