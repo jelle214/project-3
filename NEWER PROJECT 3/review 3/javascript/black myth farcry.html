@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Review</title>
+    <link rel="stylesheet" href="script.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Game Review</h1>
+        <div id="gameReview"></div>
+        <p>Voer je leeftijd in om te controleren of je de game mag spelen:</p>
+        <input type="number" id="userAge" placeholder="Voer je leeftijd in">
+        <button class="button" onclick="checkAge()">Controleer Leeftijd</button>
+        <p id="ageError" class="error"></p>
+
+        <button class="button" onclick="switchGame('Far Cry 6')">Bekijk Far Cry 6 Review</button>
+        <button class="button" onclick="switchGame('Black Myth: Wukong')">Bekijk Black Myth: Wukong Review</button>
+    </div>
+
+    <script>
+        // Associatieve array met game-informatie
+        const games = {
+            'Far Cry 6': {
+                title: 'Far Cry 6',
+                genre: ['First-person shooter', 'Open world', 'Action'],
+                photos: [
+                    'fotos/fc6.jpg'
+                ],
+                rating: 18, // PEGI-rating
+                description: 'Far Cry 6 neemt je mee naar het fictieve eiland Yara, waar je speelt als Dani Rojas, die zich verzet tegen de tirannieke dictator Anton Castillo.',
+                averageRating: 8.5, // Gemiddelde rating van de game
+                trailerLink: 'https://www.youtube.com/watch?v=-IJuKT1mHO8', // YouTube trailer link
+                platforms: ['PC', 'PS4', 'PS5', 'Xbox One', 'Xbox Series X/S'],
+                developer: 'Ubisoft'
+            },
+            'Black Myth: Wukong': {
+                title: 'Black Myth: Wukong',
+                genre: ['Action RPG', 'Mythology', 'Open world'],
+                photos: [
+                    'fotos/bmw.jpg' 
+                ],
+                rating: 16, // PEGI-rating
+                description: 'Black Myth: Wukong is een actievolle RPG gebaseerd op de Chinese legende van de Apenkoning. Het biedt intense gevechten en een rijke, mythologische wereld.',
+                averageRating: 9.0, // Gemiddelde rating van de game
+                trailerLink: 'https://www.youtube.com/watch?v=pnSsgRJmsCc', // YouTube trailer link
+                platforms: ['PC', 'PS5', 'Xbox Series X/S'],
+                developer: 'Game Science'
+            }
+        };
+
+        let selectedGame = ''; // Startwaarde voor de geselecteerde game
+
+        // Functie om de leeftijd te controleren
+        function checkAge() {
+            const userAge = parseInt(document.getElementById('userAge').value);
+            const ageError = document.getElementById('ageError');
+            const gameInfo = games[selectedGame]; // Haal game-informatie op op basis van geselecteerde game
+
+            // Controleer of de gebruiker oud genoeg is voor de game
+            if (userAge >= gameInfo.rating) {
+                ageError.textContent = ''; // Geen foutmelding
+                displayGameInfo(gameInfo); // Toon de game-informatie
+            } else {
+                ageError.textContent = `Je bent niet oud genoeg om ${gameInfo.title} te spelen. Minimumleeftijd: ${gameInfo.rating} jaar.`;
+                document.getElementById('gameReview').innerHTML = ''; // Verberg game-informatie als je te jong bent
+            }
+        }
+
+        // Functie om de informatie van de geselecteerde game te tonen
+        function displayGameInfo(gameInfo) {
+            let gameHTML = `
+                <div class="game-info">
+                    <h2>${gameInfo.title}</h2>
+                    <p><strong>Genre:</strong> ${gameInfo.genre.join(', ')}</p>
+                    <p><strong>PEGI Leeftijd:</strong> ${gameInfo.rating} jaar</p>
+                    <p><strong>Beschrijving:</strong> ${gameInfo.description}</p>
+                    <p><strong>Gemiddelde Rating:</strong> ${gameInfo.averageRating}/10</p>
+                    <p><strong>Platforms:</strong> ${gameInfo.platforms.join(', ')}</p>
+                    <p><strong>Ontwikkelaar:</strong> ${gameInfo.developer}</p>
+                    <div class="game-images">
+                        ${gameInfo.photos.map(photo => `<img src="${photo}" alt="${gameInfo.title} image">`).join('')}
+                    </div>
+                    <div class="game-video">
+                        <iframe width="560" height="315" src="${gameInfo.trailerLink}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            `;
+            document.getElementById('gameReview').innerHTML = gameHTML;
+        }
+
+        // Functie om de game te wisselen
+        function switchGame(gameTitle) {
+            selectedGame = gameTitle;
+            checkAge(); // Roep de leeftijdscontrole aan wanneer de game verandert
+        }
+
+        // Display de game-informatie bij het laden van de pagina
+        displayGameInfo(games[selectedGame]);
+    </script>
+</body>
+</html>
