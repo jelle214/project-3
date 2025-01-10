@@ -1,0 +1,163 @@
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <!--Zorgt ervoor dat de pagina correct word weergegeven op mobiele apparaten.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--SEO (search engen optimation) Metagegevens -->
+    <!-- Descripption voor zoekmachines en sociale media, omschrijft kort de inhoud van de pagina-->
+     <meta name="description" content="een verzameling van gaming mercandise">
+     <!-- Keywords Helpt zoekmachines begrijpen waar de pagina over gaat. -->
+    <meta name="Keywords" content="gamestars, games, merchandice,">
+    <!-- Author de naam van de developer van de pagina. -->
+     <meta name="author" content="Tijs Vreijling">
+
+     <title>Ratings gamestars</title>
+     <!-- Favicon kleine afbeelding die wordt weergegeven in de browser-tabbladen -->
+      <link rel="icon" href="fotos/gamestars.png" type="image/x-icon">
+      <!-- link naar de stylesheet-->
+       <link rel="stylesheet" href="script.css">
+</head>
+
+<body onload="pegimeter()">
+    
+          <!-- Navigatiebalk -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Merchandise.html">Merchandise</a>
+        <a href="Contact.html">Contact</a>
+        <a href="games.html">Games</a>
+    </nav>
+	
+    <nav class="tab">
+        <button class="tablinks" onclick="openGame('HFW')">Halo Infinite</button>
+        <button class="tablinks" onclick="openGame('SWBV')">Hogwarts Legacy</button>
+    </nav>
+    
+    <header>
+        <img src="fotos/gamestars.png" alt="Logo" class="logo">
+    </header>
+
+    <main onload="pegimeter">
+	<!-- de game data komt hier -->
+	<div id="game_div"> </div>
+
+	</main>
+
+	<script>
+
+	let leeftijd = 0;
+
+	function pegimeter() {
+
+		// vraag om de leeftijd
+		leeftijd = prompt("Wat is uw leeftijd in gehele jaren?");
+
+		// converteer naar integer (als het kan)
+		leeftijd = Number(leeftijd)
+		
+		//  check leeftijd is integer tussen 0 en 100
+		if (leeftijd < 0 || leeftijd > 100 || Number.isInteger(leeftijd) == false ){
+			alert("Ongeldige leeftijd");
+			pegimeter();
+		}
+	}
+
+//arrays
+
+	 game1 = [
+			 "Halo infinite",                   
+			 "16",                   
+			 " First-person shooter, Avonturenspel",                    
+			 "2021",                    
+			 "Halo Studios",                 
+			 "fotos/halo.jpg",               
+			 "fotos/inf.jpg",             
+			 "fotos/haloinf.png",               
+			 "8/10",                     
+			 "Halo Infinite is a 2021 first-person shooter game developed by 343 Industries and published by Xbox Game Studios. It is the sixth mainline installment in the Halo series, following Halo 5: Guardians (2015). The game's campaign follows the human supersoldier Master Chief and his fight against a mercenary organization, known as the Banished, on the Forerunner ringworld Zeta Halo. Unlike previous mainline entries in the series, the multiplayer portion of the game is free-to-play.",  //description     9
+		]
+	 game2 = [
+			"Hogwarts legacy",                  
+			"16",                    
+			"Puzzelspel, Amusement, Actierollenspel, Schietspel, Speculatieve fictie, Fantasy, Nonlinear gameplay, Societal",                       //genre            2
+			"2023",                
+			"Warner Bros. Interactive Entertainment",                 
+			"fotos/hogwarts.jpg",               
+			"fotos/hgl.jpg",              
+			"fotos/legasy.jpg",             
+			"9/10",                     
+			"Hogwarts Legacy is een computerspel dat is ontwikkeld door Avalanche Software. Het wordt gepubliceerd onder het Portkey Games label van Warner Bros. Interactive Entertainment. Het computerspel speelt zich af in de Wizarding World of Harry Potter, en is op 10 februari 2023 uitgekomen op Windows, PlayStation 5 en Xbox Series X/S. 5 mei 2023 is het beschikbaar voor PlayStation 4 en Xbox One. De Nintendo Switch versie komt 14 november 2023 uit.",                  //description     9
+		]
+		
+
+    // de game data variablen (constantes)
+	// de variablen van de geselecteerde game
+	let game_naam;
+	let game_pegi;
+	let game_type;
+	let game_rel;
+	let game_dev;
+	let game_img1;
+	let game_img2;
+	let game_img3;
+	let game_rat;
+	let game_desc;
+	
+	// de variable voor de game data html
+	let game_data;
+
+
+	function checkPegi(pegi) {
+		if (leeftijd < pegi){
+				alert("Uw leeftijd is te laag voor de pegi waarde van dit spel.");
+				// stuur gebruiker terug naar de games pagina
+				window.open('games.html');
+			}
+		}
+
+
+    
+// laad de juiste game data gebaseerd op de id uit de link met if en else
+	function openGame(id) {
+
+		if (id == "HFW"){
+			// laad gamedata
+			gamedata = game1			
+		} else if (id == "SWBV"){
+			gamedata = game2
+		} else {
+			gamedata = game1
+		}
+
+		// check pegi - als de leeftijd te laag is wordt de gebruiker naar een andere pagina gestuurd
+		checkPegi(gamedata[1])
+	
+		// print de geslecteerde game naam naar de console
+		console.log(`Game: ${game_naam} is geselecteerd.`);
+
+		// maak de html met string interpolatie en template literals
+		game_html = 
+			`<img src=${gamedata[5]} alt="foto van het spel" class="spel">
+			<img src=${gamedata[6]} alt="tweede foto van het spel" class="spel3">
+			<img src=${gamedata[7]} alt="nog een foto van het spel" class="spel3">
+			<div class='net'>
+			<h1> Welkom bij ${gamedata[0]} </h1>
+			<p><strong>Genre:</strong> ${gamedata[2]}.</p>
+			<p><strong>PEGI:</strong> ${gamedata[1]}.</p>
+			<p><strong>Release:</strong> ${gamedata[3]}.</p>
+			<p><strong>Developer:</strong> ${gamedata[4]}.</p>
+			<p><strong>Beschrijving:</strong> ${gamedata[9]}</p>
+			<p><strong>Rating:</strong> ${gamedata[8]}.</p>
+			</div>`;
+
+		// plaats de game data in de html
+		document.getElementById("game_div").innerHTML = game_html;
+	}
+
+  </script>
+    <footer>
+    </footer>
+</body>
+</html>
