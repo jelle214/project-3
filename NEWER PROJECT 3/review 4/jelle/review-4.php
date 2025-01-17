@@ -9,7 +9,7 @@ $games = [
         "beschrijving" => "Horizon Forbidden West is een open-world action RPG waarin je de wereld verkent als Aloy.",
         "rating" => 4.5,
         "trailer" => "https://www.youtube.com/watch?v=Lq594XmpPBg",
-        "platform" => ["PlayStation 4", "PlayStation 5"],
+        "platform" => ["PlayStation 4", "PlayStation 5", "pc"],
         "maker" => "Guerrilla Games"
     ],
 ];
@@ -34,8 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_review'])) {
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hier vind je meningen en reviews over beroemde spellen">
+    <meta name="keywords" content="gameratings, top10, games, bestgamesofalltime, populairgames">
+    <meta name="author" content="Jelle Groen">
     <title>Game Review - <?= $game["titel"] ?></title>
     <style>
         #slideshow {

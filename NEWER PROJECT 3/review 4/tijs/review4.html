@@ -1,0 +1,220 @@
+<meta charset="UTF-8">
+<!--Zorgt ervoor dat de pagina correct word weergegeven op mobiele apparaten.-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!--SEO (search engen optimation) Metagegevens -->
+<!-- Descripption voor zoekmachines en sociale media, omschrijft kort de inhoud van de pagina-->
+ <meta name="description" content="een verzameling van games">
+ <!-- Keywords Helpt zoekmachines begrijpen waar de pagina over gaat. -->
+<meta name="Keywords" content="gamestars, games, review,">
+<!-- Author de naam van de developer van de pagina. -->
+ <meta name="author" content="Tijs Vreijling">
+
+ <title>Ratings gamestars</title>
+ <!-- Favicon kleine afbeelding die wordt weergegeven in de browser-tabbladen -->
+  <link rel="icon" href="fotos/gamestars.png" type="image/x-icon">
+  <!-- link naar de stylesheet-->
+   <link rel="stylesheet" href="script.css">
+</head>
+
+<body onload="pegimeter()">
+
+      <!-- Navigatiebalk -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="Merchandise.html">Merchandise</a>
+    <a href="Contact.html">Contact</a>
+    <a href="games.html">Games</a>
+</nav>
+
+<nav class="tab">
+    <button class="tablinks" onclick="openGame('BMW'), plusSlides(-1, 0)">Black myth wukong</button>
+    <button class="tablinks" onclick="openGame('SMM'), plusSlides(-1, 0)">Spiderman Miles Morales</button>
+</nav>
+
+<header>
+    <img src="fotos/gamestars.png" alt="Logo" class="logo">
+</header>
+
+<main onload="pegimeter">
+<!-- de game data komt hier -->
+<article id="game_div"> </article>
+
+</main>
+
+<script>
+
+let leeftijd = 0;
+
+function pegimeter() {
+
+    // vraag om de leeftijd
+    leeftijd = prompt("Wat is uw leeftijd in gehele jaren?");
+
+    // converteer naar integer (als het kan)
+    leeftijd = Number(leeftijd)
+    
+    //  check leeftijd is integer tussen 0 en 100
+    if (leeftijd < 0 || leeftijd > 100 || Number.isInteger(leeftijd) == false ){
+        alert("Ongeldige leeftijd");
+        pegimeter();
+    }
+}
+
+//arrays
+
+game1 = [
+			 "Black Myth Wukong",                   
+			 "16",                   
+			 "Avonturenspel, Vechtspel, Actierollenspel",                    
+			 "2024",                    
+			 "Game Science",                 
+			 "fotos/wukong.jpg",               
+			 "fotos/bmw.jpg",             
+			 "fotos/bmwukong.png",               
+			 "8/10",                     
+			 "Black Myth: Wukong is een actie-rollenspel uit 2024ontwikkeld en uitgegeven door Game Science . Het spel is geïnspireerd op de klassieke Chinese roman Journey to the West en volgt een antropomorfe aap gebaseerd op Sun Wukong uit de roman. Black Myth: Wukong werd uitgebracht voor PlayStation 5 en Windows op 20 augustus 2024, met een Xbox Series X/S -versie die later uitkomt. De game kreeg over het algemeen positieve recensies van critici en won verschillende onderscheidingen, waaronder Game of the Year-awards. Het verkocht 20 miljoen exemplaren in de eerste maand, wat het een van de snelst verkopende games aller tijden maakt. Er staat een uitbreiding voor de game gepland voor release. ",  //description     9
+             "fotos/bm.jpg",
+             "fotos/wk.jpg",
+            ]
+	 game2 = [
+			"Spiderman Miles Morales",                  
+			"16",                    
+			"action-adventure, vechtspel, platformspel",                       //genre            2
+			"2020",                
+			"Insomniac Games, Nixxes Software",                 
+			"fotos/sm.jpg",               
+			"fotos/mm.jpg",              
+			"fotos/spider.jpg",             
+			"9/10",                     
+			"Marvel's Spider-Man: Miles Morales is a 2020 action-adventure game developed by Insomniac Games and published by Sony Interactive Entertainment. Based on the Marvel Comics character Miles Morales, it is inspired by both the character's decade-long comic book mythology and appearances in other media. The game is a spin-off and continuation of Marvel's Spider-Man (2018), and the second installment in Insomniac's Spider-Man series. The narrative focuses on Miles' struggle to balance the duties of his civilian persona and his role as the second Spider-Man when his new home, Harlem, is threatened by a war between the Roxxon Energy Corporation and a high-tech criminal army called the Underground, led by the mysterious Tinkerer.",                  //description     9
+		    "fotos/miles.jpg",
+            "fotos/moralis.jpg",
+        ]
+    
+
+// de game data variablen (constantes)
+// de variablen van de geselecteerde game
+let game_naam;
+let game_pegi;
+let game_type;
+let game_rel;
+let game_dev;
+let game_img1;
+let game_img2;
+let game_img3;
+let game_img4;
+let game_img5;
+let game_rat;
+let game_desc;
+
+// de variable voor de game data html
+let game_data;
+
+
+function checkPegi(pegi) {
+    if (leeftijd < pegi){
+            alert("Uw leeftijd is te laag voor de pegi waarde van dit spel.");
+            // stuur gebruiker terug naar de games pagina
+            window.open('games.html');
+        }
+    }
+
+
+
+// laad de juiste game data gebaseerd op de id uit de link met if en else
+function openGame(id) {
+
+    if (id == "BMW"){
+        // laad gamedata
+        gamedata = game1			
+    } else if (id == "SMM"){
+        gamedata = game2
+    } else {
+        gamedata = game1
+    }
+
+    // check pegi - als de leeftijd te laag is wordt de gebruiker naar een andere pagina gestuurd
+    checkPegi(gamedata[1])
+
+    // print de geslecteerde game naam naar de console
+    console.log(`Game: ${game_naam} is geselecteerd.`);
+
+    // maak de html met string interpolatie en template literals
+    game_html = 
+        `<slides class= "game">
+        <div class="mySlides fade game">
+  <div class="numbertext">1 / 5</div>
+  <img src=${gamedata[5]}  style="width:100%">
+ 
+</div>
+
+<div class="mySlides fade game">
+  <div class="numbertext">2 / 5</div>
+  <img src=${gamedata[6]}  style="width:100%">
+  
+</div>
+        <div class="mySlides fade game">
+  <div class="numbertext">3 / 5</div>
+  <img src=${gamedata[7]} style="width:100%">
+  
+</div>
+
+       <div class="mySlides fade game">
+  <div class="numbertext">4 / 5</div>
+  <img src=${gamedata[10]} style="width:100%">
+  
+</div>
+
+       <div class="mySlides fade game">
+  <div class="numbertext">5 / 5</div>
+  <img src=${gamedata[11]} style="width:100%">
+  
+</div>
+
+
+</div>
+<br>
+
+</slides>
+
+        <div class='net'>
+        <h1> Welkom bij ${gamedata[0]} </h1>
+        <p><strong>Genre:</strong> ${gamedata[2]}.</p>
+        <p><strong>PEGI:</strong> ${gamedata[1]}.</p>
+        <p><strong>Release:</strong> ${gamedata[3]}.</p>
+        <p><strong>Developer:</strong> ${gamedata[4]}.</p>
+        <p><strong>Beschrijving:</strong> ${gamedata[9]}</p>
+        <p><strong>Rating:</strong> ${gamedata[8]}.</p>
+        </div>`;
+
+    // plaats de game data in de html
+    document.getElementById("game_div").innerHTML = game_html;
+}
+let slideIndex = 1;
+showSlides(slideIndex);
+
+ //Next/previous controls
+function plusSlides(n) {
+showSlides(slideIndex += n);}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);}
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 20000);} // Change image every 20 seconds
+</script>
+<footer>
+</footer>
+</body>
+</html>
